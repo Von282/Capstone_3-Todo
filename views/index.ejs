@@ -1,0 +1,89 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo List</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Basic&family=Caveat&family=Nunito&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="navbar">
+            <nav>
+                <ul>
+                    <li><span><a href="/">Today</a></span></li>
+                    <li><span><a href="/work">Work</a></span></li>
+                </ul>
+            </nav>
+        </div>
+        
+        <div class="title">
+            <h1>To<span>do</span> List</h1>
+        </div>
+        
+    </header> -->
+
+    <%- include('partials/header.ejs') %> 
+
+    <main>
+        <div class="clock">
+            <img src="/images/clock.png" class="clock-img" height="200" alt="Clock Image">
+        </div>
+
+        <div class="outer-list">
+            <div class="todo-list">
+                <div class="date">
+                    <p><%= day %> <%= month %> <%= numDay %>, <%= year %></p>
+                </div>
+
+                <div class="list-items-container">
+                    <% if (taskItems.length) { %>
+                        <% taskItems.forEach(items => { %>
+                            <div class="list-items">
+                                <label>
+                                    <input type="checkbox" id="checkbx" class="checkbx-list-item">
+                                    <label for="checkbx" class="list-item"><%= items %></label>
+                                </label>
+                                
+                            </div>
+                            
+                        <% }) %>
+                    <% } %>
+    
+                </div>
+                
+                <form action="/" class="form-data" method="post" autocomplete="off">
+                    <input type="text" id="new-entry" name="task" placeholder="Enter New Task..." required>
+                
+                    <!-- <input type="submit" value="Submit"> -->
+                    <button type="submit" class="submit-btn"> 
+                        <img src="/images/submit icon.png" height="15" alt="Submit Button"> 
+                    </button>
+                </form>
+                
+                
+            </div>
+        </div>
+
+        <div class="coffee">
+            <img src="/images/Coffee.png" class="coffee-img" height="200" alt="Coffee Cup Image">
+        </div>
+    </main>
+    
+    <script>
+        let checkbx = document.getElementById("checkbx");
+        if(checkbx.checked) {
+            console.log("checked");
+        }
+    </script>
+    
+</body>
+
+<%- include('partials/footer.ejs') %>
+
+<!-- <footer class="footer"> © Copyright Javonte Moore <%= year %></footer>
+</html> -->

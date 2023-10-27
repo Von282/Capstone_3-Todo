@@ -1,0 +1,68 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo List</title>
+    <link rel="stylesheet" href="public/style.css">
+</head> 
+
+<body> -->
+    <%- include('partials/header_2.ejs') %>
+
+    <main>
+        <div class="clock">
+            <img src="/images/clock.png" class="clock-img" height="200" alt="Clock Image">
+        </div>
+
+        <div class="outer-list">
+            <div class="todo-list">
+                <div class="date">
+                    <p><%= day %> <%= month %> <%= numDay %>, <%= year %></p>
+                </div>
+
+                <div class="list-items-container">
+                    <% if (workTaskItems.length) { %>
+                        <% workTaskItems.forEach(items => { %>
+                            <div class="list-items">
+                                <label>
+                                    <input type="checkbox" id="checkbx" class="checkbx-list-item">
+                                    <label for="checkbx" class="list-item"><%= items %></label>
+                                </label>
+                                
+                            </div>
+                            
+                        <% }) %>
+                    <% } %>
+    
+                </div>
+                
+                <form action="/work" class="form-data" method="post" autocomplete="off">
+                    <input type="text" id="new-entry" name="task" placeholder="Enter New Task..." required>
+                
+                    <!-- <input type="submit" value="Submit"> -->
+                    <button type="submit" class="submit-btn"> 
+                        <img src="/images/submit icon.png" height="15" alt="Submit Button"> 
+                    </button>
+                </form>
+                
+                
+            </div>
+        </div>
+
+        <div class="coffee">
+            <img src="/images/Coffee.png" class="coffee-img" height="200" alt="Coffee Cup Image">
+        </div>
+    </main>
+    
+    <script>
+        let checkbx = document.getElementById("checkbx");
+        if(checkbx.checked) {
+            console.log("checked");
+        }
+    </script>
+    
+</body>
+
+<%- include('partials/footer.ejs') %>
+</html>
